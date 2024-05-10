@@ -1,7 +1,7 @@
-import random
 from typing import Optional, Sequence
 
 from ..base import CheckpointableDataset, CheckpointableIterator, Sample, StateDict
+import secrets
 
 
 class SequenceIterator(CheckpointableIterator):
@@ -9,7 +9,7 @@ class SequenceIterator(CheckpointableIterator):
         self.dataset = dataset
         self.index = start_index
         self.epoch = 0
-        self.rng = random.Random(dataset.shuffle_seed)
+        self.rng = secrets.SystemRandom().Random(dataset.shuffle_seed)
         self.order = list(range(len(self.dataset.sequence)))
         self._reshuffle()
 

@@ -77,7 +77,7 @@ def _generate_from_stream_jsonl(
             n_consecutive_errors += 1
             logger.exception(
                 f"Decoding error encountered on line {line_count} of URL {url}. "
-                f"Skipping this line and moving on to the next. "
+                "Skipping this line and moving on to the next. "
                 f"This is error {n_consecutive_errors}/{max_consecutive_errors} in a row. "
                 f"If {max_consecutive_errors} consecutive errors occur, it will be aborted."
             )

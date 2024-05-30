@@ -43,7 +43,7 @@ class WorkerResult:
             f"Exception in worker: {repr(e)}. The actual traceback is as follows:\n"
             f"{'=' * 80}\n"
             f"{exc_traceback}"
-            f"(The exception is going to be raised again, but its traceback can be misleading.)\n"
+            "(The exception is going to be raised again, but its traceback can be misleading.)\n"
             f"{'=' * 80}"
         )
 

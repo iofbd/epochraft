@@ -39,7 +39,7 @@ class ProtocolDelayHandler:
                 logger.debug(
                     f"Using a default delay of {delay} seconds for protocol {protocol}. "
                     f"We don't open {protocol} file more than once per {delay} second. "
-                    f"This can be configured using the environment variable "
+                    "This can be configured using the environment variable "
                     f"`EPOCHRAFT_OPEN_DELAY_{protocol}`."
                 )
         else:

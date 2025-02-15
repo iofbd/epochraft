@@ -4,6 +4,7 @@ import random
 from typing import Optional
 
 from ...base import CheckpointableDataset, CheckpointableIterator, Sample, StateDict
+import secrets
 
 
 class ShuffleIterator(CheckpointableIterator):
@@ -56,7 +57,7 @@ class ShuffleDataset(CheckpointableDataset):
         self.seed = seed
 
     def iter(self, state_dict: Optional[StateDict] = None) -> CheckpointableIterator:
-        rng = random.Random(self.seed)
+        rng = secrets.SystemRandom().Random(self.seed)
         if state_dict is not None:
             source = state_dict.pop("source")
             buffer = state_dict.pop("buffer")

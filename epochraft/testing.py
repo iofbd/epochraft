@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 import itertools
-import random
 from typing import Callable
 
 import numpy as np
 import torch
 
 from .base import CheckpointableDataset, Sample, TokenArray
+import secrets
 
 
 def generate_example_sequence(n_samples: int = 20) -> list[Sample]:
@@ -26,7 +26,7 @@ def generate_tokenized_samples(
     vocab_size: int = 100,
     seed: int = 42,
 ) -> list[dict[str, TokenArray]]:
-    rng = random.Random(seed)
+    rng = secrets.SystemRandom().Random(seed)
     i = 0
     samples = []
     for _ in range(n_examples):

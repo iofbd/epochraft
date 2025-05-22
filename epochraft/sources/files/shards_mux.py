@@ -1,12 +1,11 @@
 from __future__ import annotations
-
-import random
 from collections import deque
 from logging import getLogger
 from typing import Generic, Optional, Sequence, TypeVar
 
 from ...base import CheckpointableIterator, FileFormat, Sample, StateDict
 from .shard_reader import ShardReader
+import secrets
 
 
 logger = getLogger()
@@ -19,7 +18,7 @@ class EpochShuffleList(Generic[T]):
     def __init__(self, items: Sequence[T], shuffle: bool, seed: int) -> None:
         self.items = list(items)
         self.shuffle = shuffle
-        self.rng = random.Random(seed)
+        self.rng = secrets.SystemRandom().Random(seed)
         self.epoch = 0
 
         if shuffle:
